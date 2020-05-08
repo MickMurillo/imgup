@@ -1,0 +1,4 @@
+This webapp includes a modified version of cropper.js by Oscar Key
+https://github.com/oscarkey/cropper.js
+
+This webapp's development used frequent consultation of stackoverflow.com and other online resources.
