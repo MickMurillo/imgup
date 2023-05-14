@@ -577,12 +577,21 @@ var imageheight;
 }(window.cropper = window.cropper || {}));
 
 
+
+
+
+
+
+
 /// Starts upload
 // https://supunkavinda.blog/php/image-upload-ajax-php-mysql
 var fileOrBlob;
 // var filepath;
 var timer;
 
+
+
+/* exported upload */
 function upload() {
   var mImg = document.getElementById('mainImg');
   var file = mImg.files[0];
@@ -674,6 +683,8 @@ function ajaxUpload(file) {
 
   ajax.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
+      console.log("My err:");
+      console.log(this.responseText);
       var json = JSON.parse(this.responseText);
       if (!json || json.status !== true) {
         alert(json.error);
@@ -843,7 +854,7 @@ function displayNone(id) {
 }
 
 
-
+/* exported changeImgConfirm */
 function changeImgConfirm(){
   var minis = document.querySelectorAll('.image-mini');
         console.log('minis: '+minis.length);
@@ -882,16 +893,19 @@ fnField.value = filename;
 }
 }
 
+/* exported clearField */
 function clearField(field) {
   if (field.value == "Title" || field.value == "Artist's commentary here.") {
     field.value = "";
   }
 }
 
+/* exported deleteMini */
 function deleteMini(mini) {
   mini.parentElement.parentElement.remove();
 }
 
+/* exported copyToClipboard */
 function copyToClipboard(id){
 var field = document.getElementById(id);
 field.select();
@@ -925,7 +939,6 @@ function getTime() {
     var dateTime = year+''+month+''+day+''+hour+''+minute+''+second;
      return dateTime;
 }
-
 
 window.addEventListener('load', () => {
   console.log('imgUp is fully loaded');

@@ -5,7 +5,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include_once("D:\www\conf\imgup.php");
+include_once("../../../../Shadow/mublisher/imgup.php");
 
 try {
     // echo "Here starts: ";
@@ -17,10 +17,6 @@ try {
         $filename = date("YmdHms");
         $filename = (string)$filename;
     }
-    $settings = file_get_contents("settings.json");
-    $settings = json_decode($settings, true);
-    $imgpath = $settings['imgpath'];
-    $relimgpath = $settings['relimgpath'];
     $ext = $_POST['ext'];
     if ($ext=="jpeg") {
         $ext="jpg";
@@ -74,11 +70,12 @@ try {
 
 
     if ($_POST['fileOrBlob']=='isBlob') {
+        $filename = $filename.".".$_POST['ext'];
         $data = $_POST['image'];
         $minisPath = "minis/";
         $sizePath = $_POST['sizepath'];
         $minisfolderpath =$_SERVER['DOCUMENT_ROOT'].$imgpath.$minisPath.$sizePath."/";
-        $fullpath = $_SERVER['DOCUMENT_ROOT'].$imgpath.$minisPath.$sizePath."/".$filename.$ext;
+        $fullpath = $_SERVER['DOCUMENT_ROOT'].$imgpath.$minisPath.$sizePath."/".$filename;
 
         if (!file_exists($minisfolderpath)) {
             if (!mkdir($minisfolderpath, 755, true)) {
