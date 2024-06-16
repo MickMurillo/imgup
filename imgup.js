@@ -905,13 +905,31 @@ function deleteMini(mini) {
   mini.parentElement.parentElement.remove();
 }
 
+function delete2(){
+  console.log('Clicked DELETE');
+}
+
+function addToGallery(item){
+console.log('Should add to gallery '+item);
+}
+
 /* exported copyToClipboard */
-function copyToClipboard(id){
+function copyToClipboardOld(id){
 var field = document.getElementById(id);
 field.select();
 document.execCommand("Copy");
 alert("Copied image URL to clipboard");
 }
+
+function copyToClipboard(id) {
+  var field = document.getElementById(id);
+
+  field.select();
+  field.setSelectionRange(0, 99999); // For mobile devices
+  navigator.clipboard.writeText(field.value);
+  alert("Copied the text: " + field.value);
+}
+
 
 function getTime() {
     var now     = new Date();

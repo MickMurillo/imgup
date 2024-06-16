@@ -66,8 +66,10 @@ include_once("../../../../Shadow/mublisher/imgup.php");
 			<option value="88x88">88x88</option>
 			<option value="44x88">44x88</option>
 			<option value="120x120">120x120</option>
+			<option value="360x80">360x80</option>
 			<option value="360x240">360x240</option>
-		</select><input type="button" onclick="cropper.startCropping()" value="Start cropping" /><input type="button" onclick="cropper.getCroppedImageBlob()" value="Crop" /><input type="button" onclick="cropper.restore()" value="Restore" /><input type="button" id="upload" onclick="upload()" value="UPLOAD" /><progress id="progress" value="0"></progress><input type="button" onclick="delete()" value="DELETE" class="delete" />
+		
+		</select><input type="button" onclick="cropper.startCropping()" value="Start cropping" /><input type="button" onclick="cropper.getCroppedImageBlob()" value="Crop" /><input type="button" onclick="cropper.restore()" value="Restore" /><input type="button" id="upload" onclick="upload()" value="UPLOAD" /><progress id="progress" value="0"></progress><input type="button" onclick="delete2()" value="DELETE" class="delete" />
 	</nav>
 
 	<div id="workarea">
